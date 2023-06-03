@@ -1,7 +1,15 @@
 import { config } from "dotenv"
 
-import scrape from "./scrape.js"
-
 config()
 
-scrape().then((r) => console.log(r))
+import scrape from "./scrape.js"
+import email from "./email.js"
+import { formatScraping } from "./utils.js"
+
+scrape().then((result) => {
+  const [shouldSendEmail, context] = formatScraping(result)
+
+  if (shouldSendEmail) {
+    email(context)
+  }
+})
