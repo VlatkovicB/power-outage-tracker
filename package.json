@@ -5,8 +5,8 @@
   "main": "src/index.js",
   "type": "module",
   "scripts": {
-    "start": "node -r dotenv/config src/index.js",
-    "start:dev": "nodemon --inspect=0.0.0.0:5003 -r dotenv/config src/index.js"
+    "start": "node src/index.js",
+    "start:dev": "nodemon src/index.js"
   },
   "keywords": [],
   "author": "",
