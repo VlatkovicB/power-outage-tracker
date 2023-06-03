@@ -5,11 +5,14 @@ config()
 import scrape from "./scrape.js"
 import email from "./email.js"
 import { formatScraping } from "./utils.js"
+import cron from "./cron.js"
 
-scrape().then((result) => {
-  const [shouldSendEmail, context] = formatScraping(result)
+cron(() =>
+  scrape().then((result) => {
+    const [shouldSendEmail, context] = formatScraping(result)
 
-  if (shouldSendEmail) {
-    email(context)
-  }
-})
+    if (shouldSendEmail) {
+      email(context)
+    }
+  })
+)
