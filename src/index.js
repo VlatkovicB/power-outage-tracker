@@ -7,12 +7,11 @@ import email from "./email.js"
 import { formatScraping } from "./utils.js"
 import cron from "./cron.js"
 
-cron(() =>
-  scrape().then((result) => {
-    const [shouldSendEmail, context] = formatScraping(result)
+cron(async () => {
+  const result = await scrape()
+  const [shouldSendEmail, context] = formatScraping(result)
 
-    if (shouldSendEmail) {
-      email(context)
-    }
-  })
-)
+  if (shouldSendEmail) {
+    email(context)
+  }
+})
