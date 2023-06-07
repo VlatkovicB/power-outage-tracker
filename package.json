@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "start": "node src/index.js",
-    "start:dev": "nodemon src/index.js"
+    "start:dev": "nodemon src/index.js",
+    "gcp-build": "node node_modules/puppeteer/install.js"
   },
   "keywords": [],
   "author": "",
@@ -20,6 +21,7 @@
     "puppeteer": "^20.5.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.22"
+    "nodemon": "^2.0.22",
+    "@google-cloud/functions-framework": "^3.1.2"
   }
 }
